@@ -2,45 +2,27 @@
 
 Log what you spend, know what's left.
 
-An offline-first Flutter spend logger with runway math. Set a balance, a daily budget, and a target date, log what you spend, and it tells you when the money runs out at your current pace. No account, no server, everything stays on the phone.
+An offline‑first Flutter spend logger with runway math. Set a balance, a daily budget, and a target date, log what you spend, and it tells you when the money runs out at your current pace. No account, no server, everything stays on the phone.
 
-## Screenshots
+## What It Does
 
-| Home | Log | Fresh install |
-|---|---|---|
-| ![Home tab](screenshots/home-runway.png) | ![Log tab](screenshots/today-budget.png) | ![Empty state](screenshots/empty-state.png) |
-
-UI previews with sample figures, rendered from the app's own palette and layout constants.
-
-## What it does
-
-The Home tab opens with a greeting and the one number that matters: what is left in the pot, with a days-to-go pill. Underneath sit three readings for the day — the daily budget, what is still free today, and what today has cost so far. A status block underneath says plainly where things stand, whether that is on track for the target date or running out early.
-
-The Log tab lists every expense grouped under Today, Yesterday, and older dates. Filter chips narrow the list to one category or to uncategorized spends. Removing a row asks first, so a stray tap cannot wipe anything.
-
-Settings holds the plan card (balance, daily budget, target date) plus the category manager. Categories carry their own budgets and keyword lists, and new spends match themselves to a category by keyword. Whole-word, case-insensitive, longest keyword wins.
-
-A spend calendar on Home colors each day by how it went against the daily budget, so a bad week is visible at a glance.
-
-Logging is a floating `+` button away from any tab: it opens a quick-log sheet with the same amount + note fields, so a receipt gets recorded before it is forgotten.
-
-## Runway maths
-
-The projection is simple division. Average daily spend is total spend over days with spending; remaining balance over that average gives days left. If daily budget is set but nothing is logged yet, the budget stands in. With no spending and no budget there is no honest burn rate, so the app says so instead of inventing a figure.
+- **Home tab**: Greeting, hero number “Left in the pot” with days‑to‑go, three stats (daily budget, today free, today spent), per‑category spend cards, calendar heat map, and a “Log a spend” input card.
+- **Log tab**: List every expense grouped under Today / Yesterday / older dates. Filter chips narrow by category. Long‑press a row to delete with confirmation.
+- **Settings tab**: Set your name, adjust balance / daily budget / target date, view categories, and edit individual category names, colors, icons, budgets, and keywords.
 
 ## Storage
 
-Everything lives in SharedPreferences under `simple_planner.*` keys (with read-fallback to the legacy `vector.*` keys so older installs migrate silently), loaded once at startup behind a guard so defaults can never overwrite saved data. Deleting the app deletes the data.
+Everything lives in SharedPreferences under `vector.*` keys (e.g., `vector.balance`, `vector.user_name`, `vector.expenses_json`). Keyed so the app never overwrites saved data with defaults on startup. Deleting the app deletes the data.
 
-## Home-screen widget
+## Home‑Screen Widget
 
-A native Android widget (`RunwayWidget`) shows days of runway and what is left free today without opening the app.
+`RunwayWidget` (Android) shows days of runway and what is left free today without opening the app.
 
 ## Design
 
-Cards are liquid glass: a blurred backdrop with a two-stop white gradient, a hairline border, and a soft shadow. The bottom bar is glass too — a floating pill with accent-gradient active states for Home / Log / Settings. Type follows the Apple hierarchy with tight large titles, and labels are conversational throughout — Left in the pot, Each day, Today free — because Remaining Balance reads like a bank statement and nobody opens those twice.
+Cards are liquid glass: blurred backdrop, two‑stop white gradient, hairline border, soft shadow. Bottom bar is glass too — floating pill with accent‑gradient active states for Home / Log / Settings. Type follows Apple hierarchy with large titles; labels are conversational (“Left in the pot”, “Each day”, “Today free”).
 
-## Build and test
+## Build and Test
 
 ```bash
 flutter pub get
@@ -52,10 +34,10 @@ CI builds and tests on every push to `main`.
 
 ## Privacy
 
-On-device only. No account, no tracking, no network calls.
+On‑device only. No account, no tracking, no network calls.
 
 This app computes and reports; it is not investment advice.
 
-## License
+## Licence
 
 MIT — Joshua Riangkamang
