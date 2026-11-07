@@ -10,6 +10,13 @@ An offline‑first Flutter spend logger with runway math. Set a balance, a daily
 - **Log tab**: List every expense grouped under Today / Yesterday / older dates. Filter chips narrow by category. Long‑press a row to delete with confirmation.
 - **Settings tab**: Set your name, adjust balance / daily budget / target date, view categories, and edit individual category names, colors, icons, budgets, and keywords.
 
+## Screenshots
+
+| Empty state | Home with runway | Today budget |
+|---|---|---|
+| ![Empty state](screenshots/empty-state.png) | ![Home with runway](screenshots/home-runway.png) | ![Today budget](screenshots/today-budget.png) |
+| Fresh install: set a balance and daily budget to get started. | The hero number shows what's left in the pot and days to go. | Today's free amount and spending at a glance. |
+
 ## Storage
 
 Everything lives in SharedPreferences under `vector.*` keys (e.g., `vector.balance`, `vector.user_name`, `vector.expenses_json`). Keyed so the app never overwrites saved data with defaults on startup. Deleting the app deletes the data.
